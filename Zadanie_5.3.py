@@ -1,4 +1,3 @@
-
 # Zadanie: wizytówki
 
 # Dysponujesz już całkiem rozbudowanym programem do obsługi wizytówek. Po dodaniu kilku elementów wyślij go Mentorowi.
@@ -40,10 +39,6 @@ class BusinessContact(BaseContact):
     def contact(self):
         return f"Wybieram numer {self.company_phone} i dzwonię do {self.first_name} {self.last_name}"
     
-    @property  #CZy jestesmy w stanie zrobic bez kopiowania ?
-    def label_length(self):
-        return len(self.first_name) + len(self.last_name)
-
 
 # Funkcja tworzenia wizytówek
 def create_contacts(contact_type, number_of_contacts):
@@ -70,21 +65,23 @@ def create_contacts(contact_type, number_of_contacts):
         contacts.append(contact)
     
     return contacts
+if __name__ == "__main__":
 
-#  Testowanie funkcji
-base_contacts = create_contacts("base", 5)
-business_contacts = create_contacts("business", 3)
+    #  Testowanie funkcji
+    base_contacts = create_contacts("base", 5)
+    business_contacts = create_contacts("business", 3)
 
 # Wyświetlamy wygenerowane wizytówki
-print("Base Contacts:")
-for contact in base_contacts:
-    print(contact, f"       Długość Imienia i Nazwiska wynosi: {contact.label_length}")
-    print(contact.contact())  # Wyświetlanie metody kontaktu
-    print(" ")
-print("                               ")
+    print("Base Contacts:")
+    for contact in base_contacts:
+        print(contact, f"       Długość Imienia i Nazwiska wynosi: {contact.label_length}")
+        print(contact.contact())  # Wyświetlanie metody kontaktu
+        print(" ")
+    print("                               ")
 
-print("\nBusiness Contacts:")
-for contact in business_contacts:
-    print(contact, f"      Długość Imienia i Nazwiska wynosi:: {contact.label_length}")  # Wyświetlanie długości imienia i nazwiska)
-    print(contact.contact())  # Wyświetlanie metody kontaktu
-    print(" ")
+    print("\nBusiness Contacts:")
+    for contact in business_contacts:
+        print(contact, f"      Długość Imienia i Nazwiska wynosi:: {contact.label_length}")  # Wyświetlanie długości imienia i nazwiska)
+        print(contact.contact())  # Wyświetlanie metody kontaktu
+        print(" ")
+
